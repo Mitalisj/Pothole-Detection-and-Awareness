@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Display</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <h1>Map Display</h1>
+   
+   
+    <!-- The map will be rendered here -->
+ 
+    <a href="{% url 'upload_image' %}">Upload pothole images</a>
+    <br>
+    <!-- Include your map HTML generated in Django view -->
+    {{ map_html | safe }}
+</body>
+</html>

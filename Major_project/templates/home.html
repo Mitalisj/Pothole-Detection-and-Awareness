@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('https://miro.medium.com/v2/resize:fit:2000/format:webp/0*3Z3w_-GjKSfj6A-4'); /* Replace 'background-image.jpg' with the path to your background image */
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .bottom-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px;
+        background-color: rgba(255, 255, 255, 0.7); /* Adjust transparency as needed */
+    }
+    .bottom-section a {
+        display: block;
+        width: calc(100% / 3);
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+        text-align: center;
+        padding: 20px 0;
+        transition: all 0.3s ease;
+    }
+    .bottom-section a:hover {
+        background-color: #333;
+        color: #fff;
+    }
+    .logo-container {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100; /* Ensure the logo appears on top of other content */
+    }
+    .logo {
+        width: 200px; /* Adjust size as needed */
+        height: 200px; /* Adjust size as needed */
+        background-color: #fff; /* Background color of the circle */
+        border-radius: 50%; /* Make it circular */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+    }
+    .logo img {
+        max-width: 800%; /* Ensure the image fits inside the circle */
+        max-height: 800%; /* Ensure the image fits inside the circle */
+    }
+    </style>
+</head>
+<body>
+ <header>
+    
+</header> 
+
+<div class="logo-container">
+    <div class="logo">
+        <img src="https://i.ibb.co/vxfTCXB/new-logo-removebg-preview.png" alt="new-logo-removebg-preview" border="0"></a><br /></a><br /> <!-- Replace 'logo.png' with the path to your logo image -->
+    </div>
+</div>
+<div class="bottom-section">
+    <a href="{% url 'upload_image' %}">Upload Photo</a>
+    <a href="{% url 'display_map' %}">Display Map</a>
+    <a href="{% url 'aboutus' %}">About us</a>
+</div>
+</body>
+</html>

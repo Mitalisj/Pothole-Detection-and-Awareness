@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Pothole Image</title>
+<style>
+     body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0; /* Change background color as needed */
+        background-image: url('https://img.freepik.com/free-vector/realistic-bokeh-background_23-2148987168.jpg?w=900&t=st=1714693689~exp=1714694289~hmac=fcf9b26cb1ce7ee3e9078d7fcf627ff6624707f3d85d9c025b37a81511e3cde7'); /* Add your background image URL */
+        background-size: cover; /* Cover the entire viewport */
+        background-position: center; /* Center the background image */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center items horizontally */
+        justify-content: center; /* Center items vertically */
+        min-height: 100vh;
+    }
+    header {
+            background-color: #333; /* Header background color */
+            color: #fff; /* Header text color */
+            padding: 20px;
+            padding-bottom: 20px;
+            display: flex; /* Use flexbox */
+            justify-content: flex-start; /* Move items to the left */
+            align-items: center; /* Center items vertically */
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        header a {
+            color: #fff; /* Header link text color */
+            text-decoration: none;
+            margin: 0 15px; /* Add margin between links */
+            transition: color 0.3s ease; /* Smooth transition for color change */
+        }
+        header a:hover {
+            color: #ffcc00; /* Change color on hover */
+        }
+    form {
+        background-color: #fff; /* Form background color */
+        padding: 20px;
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+        text-align: center;
+    }
+    input[type="file"] {
+        display: block;
+        margin: 0 auto 20px; /* Center the input horizontally */
+        width: 80%; /* Set the width of the input */
+        max-width: 300px; /* Set a maximum width to prevent it from stretching too wide */
+        padding: 10px; /* Add padding to increase the clickable area */
+        border: 1px solid #ccc; /* Add a border for better visibility */
+        border-radius: 5px; /* Add rounded corners */
+        box-sizing: border-box; /* Include padding and border in the element's total width */
+    }
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #007bff; /* Button background color */
+        color: #fff; /* Button text color */
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+        background-color: #0056b3; /* Button background color on hover */
+    }
+</style>
+</head>
+<body>
+<header>
+    <a href="{% url 'main' %}">Home</a>
+    <a href="{% url 'upload_image' %}">Upload Image</a>
+    <a href="{% url 'display_map' %}">Display Map</a>
+</header>
+
+<!-- Upload image form -->
+<form method="POST"  action="{% url 'upload_image' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="image"><br><br>
+    <button type="submit">Upload Image</button>
+</form>
+
+<!-- Display messages -->
+{% if upload_success %}
+<p>{{ upload_success }}</p>  
+{% endif %}
+
+{% if pothole_detected %}
+<p>{{ pothole_detected }}</p>  
+{% endif %}
+
+{% if upload_error %}
+<p style="color: red;">{{ upload_error }}</p>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Display</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        header {
+            background-color: #333; /* Header background color */
+            color: #fff; /* Header text color */
+            padding: 20px;
+            padding-bottom: 20px;
+            display: flex; /* Use flexbox */
+            justify-content: flex-end; /* Move items to the right */
+            align-items: center; /* Center items vertically */
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        header a {
+            color: #fff; /* Header link text color */
+            text-decoration: none;
+            margin: 0 15px; /* Add margin between links */
+            transition: color 0.3s ease; /* Smooth transition for color change */
+        }
+        header a:first-child {
+            margin-left: 30px; /* Larger margin for the first link */
+        }
+        header a:hover {
+            color: #ffcc00; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="{% url 'main' %}" style="margin-right: auto;">Home</a>
+        <a href="{% url 'upload_image' %}">Upload Image</a>
+        <a href="{% url 'display_map' %}" style="margin-left: auto;">Display Map</a>
+    </header>
+   
+    <!-- The map will be rendered here -->
+ 
+    <br>
+    <br>
+    <br>
+    <!-- Include your map HTML generated in Django view -->
+    {{ map_html | safe }}
+</body>
+</html>
